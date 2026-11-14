@@ -6,8 +6,8 @@
 <title>عالم الأواني | N.N.G Group</title>
 <meta name="description" content="عالم الأواني من N.N.G Group — أفخم ماركات أدوات المطبخ والمنزل في سورية.">
 <meta name="theme-color" content="#b0144f">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.pexels.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Reem+Kufi:wght@500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--b:#d4176a;--b2:#8e1940;--b3:#fde7f0;--ink:#1d1b1e;--mu:#77707a;--ln:#f0e8ec;--bg:#f7f3f5;--card:#fff;--ok:#1f9d55;--sat:env(safe-area-inset-top);--sab:env(safe-area-inset-bottom)}
 .dark{--ink:#f3eef1;--mu:#a9a0a6;--ln:#2c2529;--bg:#141013;--card:#1e181c;--b3:#3a1626}
@@ -273,10 +273,100 @@ body{background:#efe7eb}
 .cg2 .cn b{font-size:14.5px;font-weight:900}
 .cg2 .cn span{font-size:12px;color:var(--b);font-weight:800}
 .dark .cg2 a{background:var(--card)}
+
+/* ===== LUXE THEME ===== */
+:root{--b:#a3124a;--b2:#5e0f2c;--gold:#b8924a;--ink:#171214;--mu:#857a7f;--soft:#f5f1ee;--ln:#ece5e8}
+body{font-family:Almarai,Tajawal,system-ui,sans-serif;background:#e7e0e3;letter-spacing:0}
+#app,#v{background:#fff}
+h1,h2,h3,.hx{font-family:"Reem Kufi",Almarai,sans-serif}
+.ann{background:var(--b2);color:#f3e6ea;font-size:11.5px;text-align:center;padding:calc(7px + var(--sat)) 10px 7px;letter-spacing:.2px}
+.ann b{color:#e7c98c;font-weight:800}
+.hdr{grid-template-columns:40px 1fr 40px;padding:10px 14px;background:#fff;border-bottom:1px solid var(--ln);top:0}
+.hdr .ib{border:0;background:none;width:40px;height:40px}
+.hdr .ib svg{width:23px;height:23px;stroke-width:1.6}
+.hdr .lg b{font-family:"Reem Kufi",sans-serif;font-size:24px;font-weight:700;color:var(--b2);letter-spacing:0}
+.hdr .lg small{font-size:8.5px;letter-spacing:4px;color:var(--gold);font-weight:700;margin-top:1px}
+.hero{margin:0;border-radius:0;height:min(118vw,560px);box-shadow:none;background:#222}
+.sl{padding:0;align-items:flex-end}
+.sl:before,.sl:after{display:none}
+.sl .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 6s ease}
+.sl.on .bg{transform:scale(1)}
+.sl .sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(20,6,12,.78) 100%)}
+.sl .tx{max-width:100%;padding:0 22px 46px;position:relative;z-index:2}
+.sl .k{background:none;padding:0;font-size:11px;letter-spacing:3px;color:#e7c98c;font-weight:800;margin-bottom:8px;border-radius:0}
+.sl h3{font-size:31px;font-weight:700;line-height:1.2;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.sl p{font-size:13.5px;opacity:.9;margin:8px 0 16px}
+.sl .go{background:#fff;color:var(--ink);border-radius:0;padding:12px 26px;font-size:13px;font-weight:800;letter-spacing:.5px}
+.hero .dt{top:calc(14px);bottom:auto;right:16px;left:16px;gap:4px}
+.hero .dt i{flex:1;height:2.5px;width:auto;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden;position:relative}
+.hero .dt i.on{width:auto;background:rgba(255,255,255,.35)}
+.hero .dt i.on:after{content:"";position:absolute;inset:0;background:#fff;transform-origin:right;animation:pg 4.5s linear forwards}
+.hero .dt i.done{background:#fff}
+@keyframes pg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.intro{text-align:center;padding:34px 24px 6px}
+.intro small{display:block;font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:800;margin-bottom:8px}
+.intro h2{font-size:25px;font-weight:700;color:var(--ink);line-height:1.3}
+.intro p{font-size:13.5px;color:var(--mu);margin-top:8px;line-height:1.7}
+.intro .ln2{width:44px;height:2px;background:var(--gold);margin:14px auto 0}
+.cg2{gap:8px;padding:18px 10px 0}
+.cg2 a{border-radius:0;box-shadow:none;background:none}
+.cg2 a:active{transform:none;opacity:.85}
+.cg2 .ct{aspect-ratio:3/4;background:var(--soft);position:relative;overflow:hidden}
+.cg2 .ct img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform .5s}
+.cg2 a:hover .ct img{transform:scale(1.04)}
+.cg2 .cn{padding:10px 4px 16px;gap:3px}
+.cg2 .cn b{font-family:"Reem Kufi",sans-serif;font-size:16px;font-weight:600;color:var(--ink)}
+.cg2 .cn span{font-size:11.5px;color:var(--mu);font-weight:700;letter-spacing:.3px}
+.ftr{background:var(--ink);margin-top:20px;padding:34px 20px 30px}
+.ftr b{font-family:"Reem Kufi",sans-serif;font-size:24px;color:#fff}
+.ftr .gd{color:#e7c98c}
+.top{border-bottom:1px solid var(--ln);padding:12px 14px}
+.top h1{font-size:19px;font-weight:600}
+.top .ib{background:none}
+.lh{padding:12px 14px 10px;border-bottom:1px solid var(--ln);margin-bottom:12px}
+.sortb{border-radius:0;border-color:var(--ink);font-size:12.5px}
+.g2{gap:22px 8px;padding:0 10px}
+.g2 .pc,.pc{border:0;border-radius:0;box-shadow:none;background:none}
+.g2 .pc .im,.pc .im{aspect-ratio:4/5;border-radius:0;background:var(--soft)}
+.pc .im img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
+.pc .bx{padding:10px 2px 0;gap:5px}
+.pc .nm{font-size:13.5px;font-weight:400;color:var(--ink);min-height:38px;line-height:1.45}
+.pr b{font-family:Almarai,sans-serif;font-weight:800;color:var(--ink);font-size:15px}
+.pr s{color:#a99da3}
+.tag{border-radius:0;background:var(--b);font-size:10.5px;letter-spacing:.3px;top:10px;right:10px;padding:4px 8px}
+.tag.n{background:var(--ink)}.tag.h{background:var(--gold)}
+.fv{background:none;top:6px;left:6px;color:var(--ink)}
+.fv svg{width:21px;height:21px;stroke-width:1.6}
+.qa{bottom:10px;top:auto;left:10px;width:36px;height:36px;border-radius:50%;background:#fff;color:var(--ink);box-shadow:0 4px 14px rgba(0,0,0,.12);font-size:22px;font-weight:300}
+.qa.in{background:var(--ink);color:#fff}
+.nav{border-top:1px solid var(--ln)}
+.nav a{font-weight:700;font-size:10.5px;letter-spacing:.2px}
+.nav a svg{stroke-width:1.6}
+.nav a.on{color:var(--ink)}
+.nav a.on:before{content:"";position:absolute;top:-6px;width:22px;height:2px;background:var(--b)}
+.bd{background:var(--b)}
+.pp .gal{aspect-ratio:4/5;background:var(--soft)}
+.pp .gal img{object-fit:cover;mix-blend-mode:multiply}
+.pinfo{border-radius:0;margin-top:0;padding:22px 18px 8px}
+.pinfo h2{font-size:23px;font-weight:600}
+.pinfo .cc{color:var(--gold);letter-spacing:1.5px;font-size:11.5px}
+.pinfo .pr b{color:var(--ink)}
+.btn{border-radius:0;letter-spacing:.3px}
+.btn.o{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.btn:not(.o):not(.g){background:var(--ink)}
+.sticky .tp b{color:var(--ink)}
+.feat div{border-radius:0;background:var(--soft)}
+.st2 h2:before{background:var(--gold);width:3px}
+.st2 h2{font-weight:600}
+.splash{background:var(--b2)}
+.splash b{font-family:"Reem Kufi",sans-serif;font-weight:700;font-size:32px}
+.splash small{letter-spacing:4px;color:#e7c98c;font-size:10px}
+.box,.ci2,.ord,.menu,details{border-radius:4px}
+.prof{border-radius:4px;background:linear-gradient(120deg,var(--b2),var(--b))}
 </style>
 </head>
 <body>
-<div class="splash" id="splash"><div><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#fff"/><rect x="29" y="7" width="6" height="12" rx="3" fill="#4f4f52"/><ellipse cx="32" cy="27" rx="13" ry="10" fill="#4f4f52"/><rect x="29.5" y="24" width="5" height="5" rx="1" fill="#fff"/><rect x="8" y="36" width="48" height="15" rx="5" fill="#d4176a"/><text x="32" y="47.5" font-family="Tajawal" font-weight="800" font-size="10" text-anchor="middle" fill="#fff">عالم الأواني</text></svg><b>عالم الأواني</b><small>The best for your home</small></div></div>
+<div class="splash" id="splash"><div><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#fff"/><rect x="29" y="7" width="6" height="12" rx="3" fill="#4f4f52"/><ellipse cx="32" cy="27" rx="13" ry="10" fill="#4f4f52"/><rect x="29.5" y="24" width="5" height="5" rx="1" fill="#fff"/><rect x="8" y="36" width="48" height="15" rx="5" fill="#d4176a"/><text x="32" y="47.5" font-family="Tajawal" font-weight="800" font-size="10" text-anchor="middle" fill="#fff">عالم الأواني</text></svg><b>عالم الأواني</b><small>N.N.G GROUP</small></div></div>
 <div id="app"><main id="v"></main></div>
 <nav class="nav" id="nav"></nav>
 <div class="ov" id="ov" onclick="closeSheet()"></div>
@@ -317,8 +407,11 @@ const LOGO='<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#fff" 
 function save(){S.set('cart',cart);S.set('fav',[...favs]);navDraw()}
 function cartCount(){return Object.values(cart).reduce((a,b)=>a+b,0)}
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),1700)}
-function img(p,lazy=true){return `<img src="${p.img}" alt="${esc(p.n)}" width="240" height="240" ${lazy?'loading="lazy"':''} decoding="async" onload="this.parentNode.classList.remove('sk')">`}
-function card(p){const inC=cart[p.id];return `<a class="pc" href="#p-${p.id}"><div class="im sk">${img(p)}${p.o?`<span class="tag">-${disc(p)}%</span>`:p.b==='جديد'?'<span class="tag n">جديد</span>':p.b==='الأكثر مبيعاً'?'<span class="tag h">الأكثر مبيعاً</span>':''}<button class="fv${favs.has(p.id)?' on':''}" onclick="event.preventDefault();event.stopPropagation();fav(${p.id},this)" aria-label="مفضلة">${I.heart}</button></div><div class="bx"><div class="nm">${esc(p.n)}</div><div class="pr"><b>${fmt(p.p)}</b>${p.o?`<s>${fmt(p.o)}</s>`:''}</div></div><button class="qa${inC?' in':''}" onclick="event.preventDefault();event.stopPropagation();add(${p.id},1,this)" aria-label="أضف للسلة">${inC?'✓':'+'}</button></a>`}
+const pid=p=>p.img.match(/(\d+)\.webp/)[1];
+const PX=(id,w,hh)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=${w}&h=${hh}`;
+function img(p,lazy=true,big=false){const id=pid(p),w=big?900:420,hh=Math.round(w*1.25);return `<img src="${PX(id,w,hh)}" srcset="${PX(id,w,hh)} 1x, ${PX(id,w*2,hh*2)} 2x" alt="${esc(p.n)}" ${lazy?'loading="lazy"':'fetchpriority="high"'} decoding="async" onload="this.parentNode.classList.remove('sk')" onerror="this.onerror=null;this.srcset='';this.src='${p.img}'">`}
+function imgOld(p,lazy=true){return `<img src="${p.img}" alt="${esc(p.n)}" width="240" height="240" ${lazy?'loading="lazy"':''} decoding="async" onload="this.parentNode.classList.remove('sk')">`}
+function card(p){const inC=cart[p.id];return `<a class="pc" href="#p-${p.id}"><div class="im sk">${img(p)}${p.o?`<span class="tag">-${disc(p)}%</span>`:p.b==='جديد'?'<span class="tag n">جديد</span>':p.b==='الأكثر مبيعاً'?'<span class="tag h">الأكثر مبيعاً</span>':''}<button class="fv${favs.has(p.id)?' on':''}" onclick="event.preventDefault();event.stopPropagation();fav(${p.id},this)" aria-label="مفضلة">${I.heart}</button><button class="qa${inC?' in':''}" onclick="event.preventDefault();event.stopPropagation();add(${p.id},1,this)" aria-label="أضف للسلة">${inC?'✓':'+'}</button></div><div class="bx"><div class="nm">${esc(p.n)}</div><div class="pr"><b>${fmt(p.p)}</b>${p.o?`<s>${fmt(p.o)}</s>`:''}</div></div></a>`}
 function add(id,q=1,el){cart[id]=(cart[id]||0)+q;save();toast('انضاف للسلة ✓');if(el&&el.classList.contains('qa')){el.classList.add('in');el.textContent='✓'}}
 function fav(id,el){if(favs.has(id)){favs.delete(id);toast('انشال من المفضلة')}else{favs.add(id);toast('انضاف للمفضلة ❤️')}if(el)el.classList.toggle('on');save();if(location.hash==='#fav')route()}
 function navDraw(){const h=location.hash||'#home';const tabs=[['#home','الرئيسية',I.home],['#cats','الأقسام',I.grid],['#fav','المفضلة',I.heart,favs.size],['#cart','السلة',I.cart,cartCount()],['#me','حسابي',I.user]];
@@ -329,27 +422,26 @@ function topBar(t,back=true,extra=''){return `<div class="top">${back?`<button c
 function goBack(){if(history.length>1)history.back();else location.hash='#home'}
 
 /* ===== الرئيسية ===== */
-function hdr(){return `<div class="hdr"><a class="ib" href="#search" aria-label="بحث">${I.search}</a><a class="lg" href="#home"><b>عالم الأواني</b><small>N.N.G Group</small></a><a class="ib" href="#cart" aria-label="السلة">${I.cart}<span class="bd" style="top:-5px;left:-5px">${cartCount()||''}</span></a></div>`}
+function hdr(){return `<div class="ann">توصيل لكل المحافظات • <b>توصيل مجاني</b> فوق ${fmt(FREE_SHIP)}</div><div class="hdr"><a class="ib" href="#search" aria-label="بحث">${I.search}</a><a class="lg" href="#home"><b>عالم الأواني</b><small>N.N.G GROUP</small></a><a class="ib" href="#cart" aria-label="السلة">${I.cart}<span class="bd" style="top:-5px;left:-5px">${cartCount()||''}</span></a></div>`}
 function infinite(el,items,step=12){let n=0;const s=document.createElement('div');s.className='sent';el.after(s);
  const more=()=>{if(n>=items.length){s.innerHTML=items.length?'✓ شفت كل المنتجات':'';io.disconnect();return}el.insertAdjacentHTML('beforeend',items.slice(n,n+step).map(card).join(''));n+=step;s.innerHTML=n<items.length?'<div class="spin"></div>':'✓ شفت كل المنتجات'};
  const io=new IntersectionObserver(e=>{if(e[0].isIntersecting)more()},{rootMargin:'600px'});more();io.observe(s)}
 function home(){
  const f=r=>P.find(p=>r.test(p.n));
  const sl=[
-  ['تشكيلة جديدة','أطقم ضيافة تليق بضيوفك','بورسلان فاخر بنقشات ذهبية','#c-tea',f(/ريشة ذهبية/),f(/ركوة نحاس مطروق/),'linear-gradient(125deg,#6e1233 0%,#b3164f 55%,#e0237a 100%)'],
-  ['بدك تجهز قبل العرس؟','تجهيز بيت العرسان','صحون وأطقم سفرة بأرقى التصاميم','#c-plates',f(/طقم سفرة صحون/),f(/طقم صحون رمادي/),'linear-gradient(125deg,#2a1520 0%,#5c1d3b 60%,#8e1940 100%)'],
-  ['لمسة على حيطانك','ساعات حائط وطاولة','تصاميم كلاسيك ومودرن','#c-clocks',f(/ساعة حائط ذهبية عتيقة/),f(/منبه جرس ليلكي كبير/),'linear-gradient(125deg,#8e1940 0%,#c2185b 60%,#ff5c9d 100%)'],
-  ['بيتك أحلى','ديكور وشموع ومزهريات','قطع مختارة بعناية لكل زاوية','#c-decor',f(/طقم مزهريات بيضاء/),f(/طقم شموع طويلة/),'linear-gradient(125deg,#4a1029 0%,#94204f 60%,#d4176a 100%)']];
- const neu=[...P.filter(p=>p.b==='جديد'),...P.filter(p=>p.b!=='جديد')];
- $('v').innerHTML=hdr()+`<div class="hero" id="hero"><div class="tr" id="tr">${sl.map(s=>`<a class="sl" href="${s[3]}" style="background:${s[6]}"><div class="tx"><span class="k">${s[0]}</span><h3>${s[1]}</h3><p>${s[2]}</p><span class="go">تسوّق الآن</span></div>${s[4]?`<div class="ph"><img src="${s[4].img}" alt=""></div>`:''}${s[5]?`<div class="ph ph2"><img src="${s[5].img}" alt=""></div>`:''}</a>`).join('')}</div><div class="dt" id="dt">${sl.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div></div>
- <div class="st2"><h2>تسوّق حسب القسم</h2><span>${CATS.length} قسم</span></div>
- <div class="cg2">${catTiles()}</div><div class="ftr"><b>عالم الأواني</b>أفخم ماركات أدوات المطبخ والمنزل في سورية<br><br><a href="https://www.instagram.com/nng.group.syria/" target="_blank" rel="noopener">@nng.group.syria</a></div>
+  ['NEW COLLECTION','أطقم ضيافة تليق بضيوفك','بورسلان فاخر بنقشات ذهبية','#c-tea',16576776],
+  ['تجهيز العرسان','بيتك الجديد يبدأ من هون','أطقم سفرة بأرقى التصاميم','#c-plates',291767],
+  ['GOLD EDITION','لمسة ذهبية على سفرتك','ملاعق وشوك بتصاميم فخمة','#c-cutlery',13006194],
+  ['HOME DECOR','تفاصيل بتحكي ذوقك','مزهريات وشموع وساعات','#c-decor',7214789]];
+ $('v').innerHTML=hdr()+`<div class="hero" id="hero"><div class="tr" id="tr">${sl.map((s,i)=>`<a class="sl${i?'':' on'}" href="${s[3]}"><img class="bg" src="${PX(s[4],900,1150)}" srcset="${PX(s[4],900,1150)} 1x, ${PX(s[4],1400,1790)} 2x" alt="" ${i?'loading="lazy"':'fetchpriority="high"'} onerror="this.onerror=null;this.srcset='';this.src='p/${s[4]}.webp'"><div class="sh"></div><div class="tx"><span class="k">${s[0]}</span><h3>${s[1]}</h3><p>${s[2]}</p><span class="go">تسوّق الآن</span></div></a>`).join('')}</div><div class="dt" id="dt">${sl.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div></div>
+ <div class="intro"><small>عالم الأواني</small><h2>كل شي لبيتك بمكان واحد</h2><p>أفخم ماركات أدوات المطبخ والمنزل في سورية</p><div class="ln2"></div></div>
+ <div class="cg2">${catTiles()}</div><div class="ftr"><b>عالم الأواني</b><span class="gd">N.N.G GROUP</span><br><br>أفخم ماركات أدوات المطبخ والمنزل في سورية<br>بدك تجهز قبل العرس؟ تفضل لعنا<br><br><a href="https://www.instagram.com/nng.group.syria/" target="_blank" rel="noopener">@nng.group.syria</a></div>
 `;
  slider();
 }
-function catTiles(){return CATS.map(c=>{const ps=P.filter(x=>x.c===c.k);return `<a href="#c-${c.k}"><div class="ct"><img src="${ps[0].img}" alt="" loading="lazy"></div><div class="cn"><b>${c.t}</b><span>${ps.length} منتج ←</span></div></a>`}).join('')}
+function catTiles(){return CATS.map(c=>{const ps=P.filter(x=>x.c===c.k);return `<a href="#c-${c.k}"><div class="ct">${img(ps[0])}</div><div class="cn"><b>${c.t}</b><span>${ps.length} منتج</span></div></a>`}).join('')}
 function slider(){const tr=$('tr'),hero=$('hero');if(!tr)return;const n=tr.children.length,ds=[...$('dt').children];let i=0,x0=null;
- const go=k=>{i=(k+n)%n;tr.style.transform=`translateX(${i*100}%)`;ds.forEach((d,j)=>d.classList.toggle('on',j===i))};
+ const sls=[...tr.children];const go=k=>{i=(k+n)%n;tr.style.transform=`translateX(${i*100}%)`;sls.forEach((s,j)=>s.classList.toggle('on',j===i));ds.forEach((d,j)=>{d.classList.remove('on');d.classList.toggle('done',j<i);void d.offsetWidth;if(j===i)d.classList.add('on')})};
  const auto=()=>{clearInterval(slider.t);slider.t=setInterval(()=>{if(!document.body.contains(tr))return clearInterval(slider.t);go(i+1)},4500)};
  hero.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
  hero.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx>0?1:-1));auto()}x0=null});
@@ -374,7 +466,7 @@ let pq=1;
 function product(id){const p=byId[id];if(!p)return home();pq=1;
  recent=[id,...recent.filter(x=>x!==id)].slice(0,10);S.set('recent',recent);
  const sim=P.filter(x=>x.c===p.c&&x.id!==p.id).slice(0,10);
- $('v').innerHTML=`<div class="pp"><div class="gal" onclick="zoomImg('${p.img}')">${img(p,false)}
+ $('v').innerHTML=`<div class="pp"><div class="gal" onclick="zoomImg(PX(pid(byId[${p.id}]),1400,1750))">${img(p,false,true)}
  <button class="ib w bk" onclick="event.stopPropagation();goBack()" aria-label="رجوع">${I.back}</button>
  <div class="tl"><button class="ib w fv2${favs.has(p.id)?' on':''}" style="${favs.has(p.id)?'color:#d4176a':''}" onclick="event.stopPropagation();fav(${p.id});route()" aria-label="مفضلة">${I.heart}</button><button class="ib w" onclick="event.stopPropagation();shareP(${p.id})" aria-label="مشاركة">${I.share}</button></div></div>
  <div class="pinfo"><a class="cc" href="#c-${p.c}">${catT[p.c]}</a><h2>${esc(p.n)}</h2>
