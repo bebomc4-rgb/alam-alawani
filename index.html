@@ -7,7 +7,7 @@
 <meta name="description" content="عالم الأواني من N.N.G Group — أفخم ماركات أدوات المطبخ والمنزل في سورية.">
 <meta name="theme-color" content="#b0144f">
 <link rel="preconnect" href="https://images.pexels.com"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--b:#d4176a;--b2:#8e1940;--b3:#fde7f0;--ink:#1d1b1e;--mu:#77707a;--ln:#f0e8ec;--bg:#f7f3f5;--card:#fff;--ok:#1f9d55;--sat:env(safe-area-inset-top);--sab:env(safe-area-inset-bottom)}
 .dark{--ink:#f3eef1;--mu:#a9a0a6;--ln:#2c2529;--bg:#141013;--card:#1e181c;--b3:#3a1626}
@@ -392,6 +392,8 @@ body,h1,h2,h3,.hx,.hdr .lg b,.cg2 .cn b,.pinfo h2,.ftr b,.splash b,.intro h2,.sl
 .brc i{font-style:normal;width:44px;height:44px;border-radius:50%;background:#fdeef4;display:grid;place-items:center;font-size:20px;flex:none}
 .brc b{display:block;font-size:15px;font-weight:800}.brc small{color:var(--mu);font-size:12.5px;line-height:1.5}
 .brc .go{margin-inline-start:auto;font-size:12px;font-weight:800;color:var(--b);white-space:nowrap}
+.splash{transition:opacity .3s}
+.pc .im{background:var(--soft)}
 </style>
 </head>
 <body>
@@ -441,7 +443,7 @@ function cartCount(){return Object.values(cart).reduce((a,b)=>a+b,0)}
 function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('on'),1700)}
 const pid=p=>p.img.match(/(\d+)\.webp/)[1];
 const PX=(id,w,hh)=>`https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=${w}&h=${hh}`;
-function img(p,lazy=true,big=false){const id=pid(p),w=big?900:420,hh=Math.round(w*1.25);return `<img src="${PX(id,w,hh)}" srcset="${PX(id,w,hh)} 1x, ${PX(id,w*2,hh*2)} 2x" alt="${esc(p.n)}" ${lazy?'loading="lazy"':'fetchpriority="high"'} decoding="async" onload="this.parentNode.classList.remove('sk')" onerror="this.onerror=null;this.srcset='';this.src='${p.img}'">`}
+function img(p,lazy=true,big=false){const id=pid(p);const ws=big?[600,900,1200]:[280,420,600];const ss=ws.map(w=>`${PX(id,w,Math.round(w*1.25))} ${w}w`).join(', ');return `<img src="${PX(id,ws[1],Math.round(ws[1]*1.25))}" srcset="${ss}" sizes="${big?'100vw':'(min-width:480px) 230px, 48vw'}" alt="${esc(p.n)}" ${lazy?'loading="lazy"':'fetchpriority="high"'} decoding="async" style="background:url(${p.img}) center/cover" onload="this.classList.add('ok');this.parentNode.classList.remove('sk')" onerror="this.onerror=null;this.srcset='';this.src='${p.img}'">`}
 function imgOld(p,lazy=true){return `<img src="${p.img}" alt="${esc(p.n)}" width="240" height="240" ${lazy?'loading="lazy"':''} decoding="async" onload="this.parentNode.classList.remove('sk')">`}
 function card(p){const inC=cart[p.id];return `<a class="pc" href="#p-${p.id}"><div class="im sk">${img(p)}${p.o?`<span class="tag">-${disc(p)}%</span>`:p.b==='جديد'?'<span class="tag n">جديد</span>':p.b==='الأكثر مبيعاً'?'<span class="tag h">الأكثر مبيعاً</span>':''}<button class="fv${favs.has(p.id)?' on':''}" onclick="event.preventDefault();event.stopPropagation();fav(${p.id},this)" aria-label="مفضلة">${I.heart}</button><button class="qa${inC?' in':''}" onclick="event.preventDefault();event.stopPropagation();add(${p.id},1,this)" aria-label="أضف للسلة">${inC?'✓':'+'}</button></div><div class="bx"><div class="nm">${esc(p.n)}</div><div class="pr"><b>${fmt(p.p)}</b>${p.o?`<s>${fmt(p.o)}</s>`:''}</div></div></a>`}
 function add(id,q=1,el){cart[id]=(cart[id]||0)+q;save();toast('انضاف للسلة ✓');if(el&&el.classList.contains('qa')){el.classList.add('in');el.textContent='✓'}}
@@ -465,7 +467,7 @@ function home(){
   ['تجهيز العرسان','بيتك الجديد يبدأ من هون','أطقم سفرة بأرقى التصاميم','#c-plates',291767],
   ['GOLD EDITION','لمسة ذهبية على سفرتك','ملاعق وشوك بتصاميم فخمة','#c-cutlery',13006194],
   ['HOME DECOR','تفاصيل بتحكي ذوقك','مزهريات وشموع وساعات','#c-decor',7214789]];
- $('v').innerHTML=hdr()+`<div class="hero" id="hero"><div class="tr" id="tr">${sl.map((s,i)=>`<a class="sl${i?'':' on'}" href="${s[3]}"><img class="bg" src="${PX(s[4],900,1150)}" srcset="${PX(s[4],900,1150)} 1x, ${PX(s[4],1400,1790)} 2x" alt="" ${i?'loading="lazy"':'fetchpriority="high"'} onerror="this.onerror=null;this.srcset='';this.src='p/${s[4]}.webp'"><div class="sh"></div><div class="tx"><span class="k">${s[0]}</span><h3>${s[1]}</h3><p>${s[2]}</p><span class="go">تسوّق الآن</span></div></a>`).join('')}</div><div class="dt" id="dt">${sl.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div></div>
+ $('v').innerHTML=hdr()+`<div class="hero" id="hero"><div class="tr" id="tr">${sl.map((s,i)=>`<a class="sl${i?'':' on'}" href="${s[3]}"><img class="bg" src="${PX(s[4],700,900)}" srcset="${PX(s[4],500,640)} 500w, ${PX(s[4],700,900)} 700w, ${PX(s[4],1000,1280)} 1000w" sizes="100vw" style="background:url(p/${s[4]}.webp) center/cover" alt="" ${i?'loading="lazy"':'fetchpriority="high"'} onerror="this.onerror=null;this.srcset='';this.src='p/${s[4]}.webp'"><div class="sh"></div><div class="tx"><span class="k">${s[0]}</span><h3>${s[1]}</h3><p>${s[2]}</p><span class="go">تسوّق الآن</span></div></a>`).join('')}</div><div class="dt" id="dt">${sl.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div></div>
  <div class="intro"><small>عالم الأواني</small><h2>كل شي لبيتك بمكان واحد</h2><p>أفخم ماركات أدوات المطبخ والمنزل في سورية</p><div class="ln2"></div></div>
  <div class="cg3">${catTiles()}</div>
  <div class="offbar"><div><span>لفترة محدودة</span><b>🔥 العروض</b></div><a href="#deals">كل العروض</a></div><div class="g2" style="margin-top:14px">${P.filter(p=>p.o).slice(0,4).map(card).join('')}</div>
@@ -618,7 +620,7 @@ function route(){const h=location.hash||'#home';closeSheet();
  navDraw();if(!h.startsWith('#c-')||!route.keep)scrollTo(0,0);route.keep=false}
 addEventListener('hashchange',route);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeSheet();$('zoom').classList.remove('on')}});
-route();setTimeout(()=>$('splash').classList.add('off'),1500);
+route();(()=>{const t0=performance.now(),hide=()=>setTimeout(()=>$('splash').classList.add('off'),Math.max(0,450-(performance.now()-t0)));const fi=document.querySelector('.sl .bg');if(fi&&!fi.complete){fi.addEventListener('load',hide,{once:true});fi.addEventListener('error',hide,{once:true});setTimeout(hide,1200)}else hide()})();
 </script>
 </body>
 </html>
