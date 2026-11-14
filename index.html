@@ -502,6 +502,35 @@ body{overflow-x:hidden;touch-action:manipulation}
 .hd i b{position:absolute;inset:0;background:linear-gradient(90deg,#8e1940,#e2266f);transform:scaleX(0);transform-origin:right}
 .hd i.on b{animation:pg 5s linear forwards}
 .hd i.done b{transform:scaleX(1)}
+
+/* v12: أقسام فخمة */
+.cg3{grid-template-columns:repeat(6,1fr);gap:10px;padding:18px 14px 0}
+.cg3 .ct{grid-column:span 2;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;aspect-ratio:.82;padding:10px 8px 12px;border-radius:24px;overflow:hidden;text-decoration:none;color:#fff;text-align:center;
+ background:radial-gradient(120% 80% at 50% 0%,#ffffff26 0,#ffffff00 60%),linear-gradient(160deg,#c2185b 0%,#8e1940 55%,#4d0b22 100%);
+ box-shadow:0 14px 26px -14px rgba(94,15,44,.75),inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 0 1px rgba(231,201,140,.35);
+ transform:translateZ(0);transition:transform .25s cubic-bezier(.2,1.4,.4,1)}
+.cg3 .ct.big{grid-column:span 3;aspect-ratio:1.15;flex-direction:row-reverse;justify-content:space-between;align-items:flex-end;text-align:right;padding:14px}
+.cg3 .ct:nth-child(3n+1):not(.big){background:radial-gradient(120% 80% at 50% 0%,#ffffff2a 0,#ffffff00 60%),linear-gradient(160deg,#e2266f 0%,#a3124a 60%,#5e0f2c 100%)}
+.cg3 .ct:nth-child(3n):not(.big){background:radial-gradient(120% 80% at 50% 0%,#ffffff22 0,#ffffff00 60%),linear-gradient(160deg,#9b1b4d 0%,#6a1031 60%,#2f0715 100%)}
+.cg3 .ct:active{transform:scale(.95)}
+.cg3 .cgl{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.28) 45%,transparent 60%);transform:translateX(-120%);animation:sweep 5s ease-in-out infinite;animation-delay:var(--d);pointer-events:none}
+@keyframes sweep{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.cg3 .cic{position:absolute;top:8%;left:50%;width:70%;aspect-ratio:1;transform:translateX(-50%);display:grid;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,#fde8f1 55%,#f2c9da 100%);box-shadow:0 10px 18px rgba(30,0,10,.35),inset 0 -4px 10px rgba(163,18,74,.15)}
+.cg3 .ct.big .cic{position:relative;top:auto;left:auto;transform:none;width:46%;align-self:center}
+.cg3 .cic svg{width:78%;height:78%;animation:flt 3.6s ease-in-out infinite;animation-delay:calc(var(--d) * -3)}
+.cg3 .cnm{position:relative;font-weight:900;font-size:12.5px;line-height:1.3;text-shadow:0 2px 6px rgba(0,0,0,.25)}
+.cg3 .ct.big .cnm{font-size:16px;display:block;max-width:52%}
+.cg3 .cnt2{position:relative;margin-top:5px;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:20px;background:rgba(255,255,255,.18);border:1px solid rgba(231,201,140,.5);color:#ffe9b8;white-space:nowrap}
+.cg3 .cnt2 i{font-style:normal}
+.cg3 .ct.big .cnt2{position:absolute;bottom:14px;right:14px}
+.cg3 .ct.big .cnm{position:absolute;bottom:44px;right:14px}
+.cg3 small{display:none}
+
+.cg3 .ct{aspect-ratio:.72}
+.cg3 .cic{top:7%;width:62%}
+.cg3 .ct.big{aspect-ratio:1.25}
+.cg3 .ct.big .cic{width:40%;position:absolute;left:12px;top:50%;transform:translateY(-62%)}
+.cg3 .ct.big .cnm{max-width:56%;bottom:46px}
 </style>
 </head>
 <body>
@@ -607,7 +636,7 @@ clean:`<rect x="38" y="46" width="40" height="52" rx="10" fill="url(#p3)"/><rect
 knives:`<g transform="rotate(-20 60 60)"><path d="M56 18l6 44" stroke="url(#m3)" stroke-width="7" stroke-linecap="round"/><path d="M68 18l-6 44" stroke="url(#m3)" stroke-width="7" stroke-linecap="round"/><circle cx="50" cy="78" r="12" fill="none" stroke="url(#p3)" stroke-width="7"/><circle cx="74" cy="78" r="12" fill="none" stroke="url(#p3)" stroke-width="7"/><circle cx="62" cy="62" r="3" fill="url(#g3)"/></g>`,
 gift:`<rect x="26" y="52" width="68" height="46" rx="6" fill="url(#p3)"/><rect x="22" y="40" width="76" height="16" rx="5" fill="url(#p3)"/><rect x="54" y="40" width="12" height="58" fill="url(#g3)"/><path d="M60 40c-12-20-34-16-26-4 6 6 26 4 26 4zm0 0c12-20 34-16 26-4-6 6-26 4-26 4z" fill="url(#g3)"/><path d="M30 60v32" stroke="#fff" stroke-width="3" opacity=".35"/>`};
 const ic3=k=>`<svg viewBox="0 0 120 120">${G3.replace(/id="(\w+)"/g,'id="$1'+k+'"').replace(/url\(#(\w+)\)/g,'url(#$1'+k+')')}${(IC3[k]||'').replace(/url\(#(\w+)\)/g,'url(#$1'+k+')')}</svg>`;
-function catTiles(){return CATS.map(c=>{const n=P.filter(x=>x.c===c.k).length;return `<a href="#c-${c.k}"><div class="ic">${ic3(c.k)}</div>${c.t}<small>${n} منتج</small></a>`}).join('')}
+function catTiles(){return CATS.map((c,i)=>{const n=P.filter(x=>x.c===c.k).length;return `<a href="#c-${c.k}" class="ct${(i<2||i>=CATS.length-2)?' big':''}" style="--d:${i*60}ms"><span class="cgl"></span><span class="cic">${ic3(c.k)}</span><span class="cnm">${c.t}</span><span class="cnt2">${n} منتج <i>←</i></span></a>`}).join('')}
 function slider(){const tr=$('tr');if(!tr)return;const cs=[...tr.children],ds=[...$('dt').children];let i=0,user=0;
  const mark=k=>{i=k;cs.forEach((c,j)=>c.classList.toggle('on',j===k));ds.forEach((d,j)=>{d.classList.toggle('on',j===k);d.classList.toggle('done',j<k)})};
  const go=k=>{k=(k+cs.length)%cs.length;const c=cs[k];tr.scrollTo({left:c.offsetLeft-(tr.clientWidth-c.clientWidth)/2,behavior:'smooth'});mark(k)};
