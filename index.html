@@ -419,6 +419,48 @@ body,h1,h2,h3,.hx,.hdr .lg b,.cg2 .cn b,.pinfo h2,.ftr b,.splash b,.intro h2,.sl
 /* v8: تدرج الهوية فوق صور السلايد */
 .sl .sh{background:linear-gradient(180deg,rgba(94,15,44,.15) 0%,rgba(142,25,64,.35) 40%,rgba(163,18,74,.78) 75%,rgba(94,15,44,.95) 100%),linear-gradient(120deg,rgba(212,23,106,.30) 0%,rgba(212,23,106,0) 60%)!important}
 .sl .k{color:#ffd9e8!important}
+
+/* v9: تدرج أخف + حركة وروح */
+.sl .sh{background:linear-gradient(180deg,rgba(94,15,44,0) 35%,rgba(142,25,64,.25) 65%,rgba(94,15,44,.62) 100%)!important}
+.sl .tx>*{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.sl.on .tx>*{opacity:1;transform:none}
+.sl.on .tx>*:nth-child(2){transition-delay:.12s}.sl.on .tx>*:nth-child(3){transition-delay:.24s}.sl.on .tx>*:nth-child(4){transition-delay:.36s}
+.sl .go{position:relative;overflow:hidden}
+.sl .go:after,.offbar a:after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);animation:shine 2.8s ease-in-out infinite}
+.offbar a{position:relative;overflow:hidden}
+@keyframes shine{0%,55%{left:-60%}100%{left:130%}}
+.rv{opacity:0;transform:translateY(26px) scale(.98);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.cg3 .ic svg{animation:flt 3.6s ease-in-out infinite}
+.cg3 a:nth-child(3n+2) .ic svg{animation-delay:-1.2s}.cg3 a:nth-child(3n) .ic svg{animation-delay:-2.4s}
+@keyframes flt{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6px) rotate(-2deg)}}
+.cg3 .ic{transition:transform .25s cubic-bezier(.2,1.4,.4,1),box-shadow .25s}
+.cg3 a:active .ic{transform:scale(.9)}
+.offbar{position:relative;overflow:hidden;background:linear-gradient(120deg,#5e0f2c,#a3124a,#e2266f,#a3124a,#5e0f2c);background-size:300% 100%;animation:grad 7s ease infinite}
+@keyframes grad{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.offbar b{display:inline-block;animation:wig 2.5s ease-in-out infinite}
+@keyframes wig{0%,80%,100%{transform:rotate(0)}85%{transform:rotate(-6deg)}90%{transform:rotate(6deg)}95%{transform:rotate(-3deg)}}
+.pc .im img{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.pc:active .im img{transform:scale(1.06)}
+.qa{transition:transform .25s cubic-bezier(.2,1.6,.4,1),background .2s}
+.qa:active{transform:scale(.8)}
+.qa.pop{animation:pop2 .45s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop2{0%{transform:scale(.6)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
+.fv.on svg{animation:hb .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes hb{0%{transform:scale(.5)}50%{transform:scale(1.35)}100%{transform:scale(1)}}
+.bd.bump{animation:pop2 .5s}
+.fly{position:fixed;z-index:90;width:46px;height:46px;border-radius:50%;object-fit:cover;pointer-events:none;box-shadow:0 8px 20px rgba(0,0,0,.25);transition:transform .7s cubic-bezier(.5,-.3,.7,.9),opacity .7s;border:2px solid #fff}
+.view,#v>*{animation:none}
+#v{animation:pg2 .35s ease}
+@keyframes pg2{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.intro .ln2{animation:grow 1.2s ease forwards;transform-origin:center;transform:scaleX(0)}
+@keyframes grow{to{transform:scaleX(1)}}
+.brc{transition:transform .2s}.brc:active{transform:scale(.98)}
+.brc i{animation:flt 3s ease-in-out infinite}
+.call .w{animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,170,89,.5)}70%{box-shadow:0 0 0 12px rgba(31,170,89,0)}100%{box-shadow:0 0 0 0 rgba(31,170,89,0)}}
+.hdr .lg svg{animation:flt 4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -477,7 +519,7 @@ const PX=(id,w,hh)=>`/img/${id}?w=${w}&h=${hh}`;
 function img(p,lazy=true,big=false){const id=pid(p);const w=big?1000:560;return `<img src="${PX(id,w,w)}" width="${w}" height="${w}" alt="${esc(p.n)}" ${lazy?'loading="lazy"':'fetchpriority="high"'} decoding="async" onerror="this.onerror=null;this.src='${p.img}'">`}
 function imgOld(p,lazy=true){return `<img src="${p.img}" alt="${esc(p.n)}" width="240" height="240" ${lazy?'loading="lazy"':''} decoding="async" onload="this.parentNode.classList.remove('sk')">`}
 function card(p){const inC=cart[p.id];return `<a class="pc" href="#p-${p.id}"><div class="im sk">${img(p)}${p.o?`<span class="tag">-${disc(p)}%</span>`:p.b==='جديد'?'<span class="tag n">جديد</span>':p.b==='الأكثر مبيعاً'?'<span class="tag h">الأكثر مبيعاً</span>':''}<button class="fv${favs.has(p.id)?' on':''}" onclick="event.preventDefault();event.stopPropagation();fav(${p.id},this)" aria-label="مفضلة">${I.heart}</button><button class="qa${inC?' in':''}" onclick="event.preventDefault();event.stopPropagation();add(${p.id},1,this)" aria-label="أضف للسلة">${inC?'✓':'+'}</button></div><div class="bx"><div class="nm">${esc(p.n)}</div><div class="pr"><b>${fmt(p.p)}</b>${p.o?`<s>${fmt(p.o)}</s>`:''}</div></div></a>`}
-function add(id,q=1,el){cart[id]=(cart[id]||0)+q;save();toast('انضاف للسلة ✓');if(el&&el.classList.contains('qa')){el.classList.add('in');el.textContent='✓'}}
+function add(id,q=1,el){cart[id]=(cart[id]||0)+q;save();toast('انضاف للسلة ✓');if(el&&el.classList.contains('qa')){el.classList.add('in','pop');el.textContent='✓';flyToCart(el)}}
 function fav(id,el){if(favs.has(id)){favs.delete(id);toast('انشال من المفضلة')}else{favs.add(id);toast('انضاف للمفضلة ❤️')}if(el)el.classList.toggle('on');save();if(location.hash==='#fav')route()}
 function navDraw(){const h=location.hash||'#home';const tabs=[['#home','الرئيسية',I.home],['#cats','الأقسام',I.grid],['#fav','المفضلة',I.heart,favs.size],['#cart','السلة',I.cart,cartCount()],['#me','حسابي',I.user]];
  const act=h.startsWith('#c-')?'#cats':h;
@@ -640,6 +682,12 @@ function searchView(){$('v').innerHTML=`<div class="top"><button class="ib" oncl
  let tm;q.oninput=()=>{clearTimeout(tm);tm=setTimeout(draw,150)};q.onkeydown=e=>{if(e.key==='Enter'&&q.value.trim()){hist=[q.value.trim(),...hist.filter(h=>h!==q.value.trim())].slice(0,8);S.set('hist',hist);q.blur()}};
  window.sQ=v=>{q.value=v;draw()};draw();setTimeout(()=>q.focus(),250)}
 
+
+/* ===== حركة ===== */
+const RIO=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');RIO.unobserve(e.target)}}),{rootMargin:'0px 0px -40px 0px'}):null;
+function reveal(root=document){if(!RIO)return;root.querySelectorAll('.pc,.cg3 a,.brc,.st2,.intro,.offbar,.call,.ftr,.box,.ci2,.ord,.menu').forEach((el,i)=>{if(el.classList.contains('rv'))return;el.classList.add('rv');el.style.transitionDelay=(i%4)*70+'ms';RIO.observe(el)})}
+new MutationObserver(()=>reveal()).observe(document.getElementById('v'),{childList:true,subtree:true});
+function flyToCart(btn){try{const card=btn.closest('.pc');const im=card&&card.querySelector('img');const tgt=document.querySelector('.nav a[href="#cart"]');if(!im||!tgt)return;const a=im.getBoundingClientRect(),b=tgt.getBoundingClientRect();const f=document.createElement('img');f.src=im.currentSrc||im.src;f.className='fly';f.style.left=(a.left+a.width/2-23)+'px';f.style.top=(a.top+a.height/2-23)+'px';document.body.appendChild(f);requestAnimationFrame(()=>{f.style.transform=`translate(${b.left+b.width/2-(a.left+a.width/2)}px,${b.top+b.height/2-(a.top+a.height/2)}px) scale(.3)`;f.style.opacity='.4'});setTimeout(()=>{f.remove();const bd=tgt.querySelector('.bd');if(bd){bd.classList.remove('bump');void bd.offsetWidth;bd.classList.add('bump')}},720)}catch(e){}}
 /* ===== التوجيه ===== */
 function route(){const h=location.hash||'#home';closeSheet();
  if(h==='#home')home();else if(h==='#cats')cats();else if(h.startsWith('#c-')){const k=h.slice(3);listView(catT[k]||'منتجات',P.filter(p=>p.c===k),h)}
