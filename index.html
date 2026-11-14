@@ -592,7 +592,7 @@ function closeSheet(){$('sheet').classList.remove('on');$('ov').classList.remove
 let pq=1;
 function product(id){const p=byId[id];if(!p)return home();pq=1;
  recent=[id,...recent.filter(x=>x!==id)].slice(0,10);S.set('recent',recent);
- const sim=P.filter(x=>x.c===p.c&&x.id!==p.id).slice(0,10);
+ const sim=[...P.filter(x=>x.c===p.c&&x.id!==p.id),...P.filter(x=>x.c!==p.c)];
  $('v').innerHTML=`<div class="pp"><div class="gal" onclick="zoomImg(PX(pid(byId[${p.id}]),1400,1750))">${img(p,false,true)}
  <button class="ib w bk" onclick="event.stopPropagation();goBack()" aria-label="رجوع">${I.back}</button>
  <div class="tl"><button class="ib w fv2${favs.has(p.id)?' on':''}" style="${favs.has(p.id)?'color:#d4176a':''}" onclick="event.stopPropagation();fav(${p.id});route()" aria-label="مفضلة">${I.heart}</button><button class="ib w" onclick="event.stopPropagation();shareP(${p.id})" aria-label="مشاركة">${I.share}</button></div></div>
@@ -601,10 +601,10 @@ function product(id){const p=byId[id];if(!p)return home();pq=1;
  <p class="desc">${esc(p.d)}</p>
  <div class="qrow">الكمية<div class="st"><button onclick="pqChange(1)">+</button><span id="pq">1</span><button onclick="pqChange(-1)">−</button></div></div>
  <div class="feat"><div><i>🚚</i>توصيل لكل المحافظات — مجاني فوق ${fmt(FREE_SHIP)}</div><div><i>💵</i>الدفع كاش عند الاستلام أو شام كاش</div><div><i>🔄</i>استبدال خلال 3 أيام إذا في عيب</div></div></div>
- ${sim.length?`<div class="st2"><h2>منتجات مشابهة</h2></div><div class="g2">${sim.slice(0,6).map(card).join('')}</div>`:''}
+ <div class="st2"><h2>ممكن يعجبك كمان</h2></div><div class="g2" id="simg"></div>
  <div style="height:90px"></div></div>
  <div class="sticky"><div class="tp"><small>المجموع</small><b id="ptot">${fmt(p.p)}</b></div><button class="btn o" onclick="add(${p.id},pq)">أضف للسلة</button><button class="btn" onclick="add(${p.id},pq);location.hash='#cart'">اشتري هلأ</button></div>`;
-}
+;infinite($('simg'),sim,10)}
 function pqChange(d){const id=+location.hash.slice(3);pq=Math.max(1,Math.min(99,pq+d));$('pq').textContent=pq;$('ptot').textContent=fmt(byId[id].p*pq)}
 function zoomImg(s){$('zimg').src=s;$('zoom').classList.add('on')}
 function shareP(id){const url=location.href.split('#')[0]+'#p-'+id;const t=byId[id].n+' — '+fmt(byId[id].p)+'\n'+url;try{navigator.clipboard.writeText(t).then(()=>toast('انسخ الرابط ✓'),()=>toast('ما قدرت انسخ'))}catch(e){toast('ما قدرت انسخ')}}
